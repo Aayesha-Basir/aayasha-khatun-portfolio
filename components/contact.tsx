@@ -16,7 +16,7 @@ export function Contact() {
         description="Open to opportunities, collaboration, and interesting frontend work. Send a message or reach me directly."
       />
 
-      <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-12">
+      <div className="mt-12">
         {/* Direct links */}
         <Reveal>
           <ul className="flex flex-col divide-y divide-border rounded-2xl border border-border bg-card">
@@ -48,12 +48,7 @@ export function Contact() {
           </ul>
         </Reveal>
 
-        {/* Form */}
-        <Reveal delay={100}>
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <ContactForm />
-          </div>
-        </Reveal>
+      
       </div>
     </section>
   )

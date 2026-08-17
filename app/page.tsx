@@ -1,16 +1,15 @@
-import { About } from "@/components/about"
-import { BeyondTheScreen } from "@/components/beyond-the-screen"
-import { Contact } from "@/components/contact"
-import { CustomCursor } from "@/components/custom-cursor"
-import { Education } from "@/components/education"
-import { Experience } from "@/components/experience"
-import { Footer } from "@/components/footer"
-import { GithubSection } from "@/components/github-section"
-import { Hero } from "@/components/hero"
-import { Navbar } from "@/components/navbar"
-import { Projects } from "@/components/projects"
-import { Skills } from "@/components/skills"
-import { profile, socials } from "@/lib/data"
+import { About } from "@/components/about";
+import { BeyondTheScreen } from "@/components/beyond-the-screen";
+import { Contact } from "@/components/contact";
+import { CustomCursor } from "@/components/custom-cursor";
+import { Education } from "@/components/education";
+import { Experience } from "@/components/experience";
+import { Footer } from "@/components/footer";
+import { Hero } from "@/components/hero";
+import { Navbar } from "@/components/navbar";
+import { Projects } from "@/components/projects";
+import { Skills } from "@/components/skills";
+import { profile, socials } from "@/lib/data";
 
 // JSON-LD structured data for richer search results.
 function StructuredData() {
@@ -24,16 +23,14 @@ function StructuredData() {
       "@type": "PostalAddress",
       addressCountry: profile.location,
     },
-    sameAs: socials
-      .filter((s) => s.kind !== "email")
-      .map((s) => s.href),
-  }
+    sameAs: socials.filter((s) => s.kind !== "email").map((s) => s.href),
+  };
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
-  )
+  );
 }
 
 export default function Page() {
@@ -56,10 +53,9 @@ export default function Page() {
         <Projects />
         <Education />
         <BeyondTheScreen />
-        <GithubSection />
         <Contact />
       </main>
       <Footer />
     </>
-  )
+  );
 }

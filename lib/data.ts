@@ -14,6 +14,13 @@ export const profile = {
   name: "Aayasha Khatun",
   title: "Frontend Developer",
   location: "Nepal",
+  // Additional personal fields extracted from provided resume
+  address: "Siddhartanagar-9, Bhairahawa",
+  phone: "+977-9822979868",
+  dob: "2000-03-01",
+  gender: "Female",
+  father: "Basir Alam",
+  mother: "Jahida Khatun",
   // A concise, human supporting line for the hero.
   tagline:
     "Designing thoughtful interfaces and building responsive web experiences that turn ideas into something people can actually use.",
@@ -22,11 +29,12 @@ export const profile = {
     "Frontend developer based in Nepal, focused on React, responsive design, and turning UI designs into clean, accessible web interfaces.",
   // Replaced by the uploaded portrait. Drop the actual image in /public
   // as `aayasha-portrait.jpg` if not already present.
-  photo: "/aayasha-portrait.jpg",
+  // Use the uploaded portrait that's already in `public/`.
+  photo: "/images/aayasha.jpg",
   photoReady: true,
   initials: "AK",
-  // PLACEHOLDER: add the real CV file to /public and keep this path.
-  resume: "/aayasha-khatun-resume.pdf",
+  // Resume will be generated dynamically by the app route.
+  resume: "/api/resume",
 };
 
 export type SocialLink = {
@@ -59,7 +67,6 @@ export const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
-  { label: "GitHub", href: "#github" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -107,7 +114,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "State & Data",
     note: "Pinia for client state; TanStack Query for server-state — data fetching, caching, synchronisation, and mutations.",
-    items: ["Pinia", "TanStack Query"],
+    items: ["Pinia", "TanStack Query", "Zustand"],
   },
   {
     title: "Backend — Familiar",
@@ -172,10 +179,23 @@ export const experience: ExperienceItem[] = [
 
 export const education = [
   {
+    degree: "SLC",
+    school: "Jaycees English Boarding High School",
+    period: "2068 – 2072",
+    notes: ["GPA: 3.20"],
+  },
+  {
+    degree: "+2",
+    school: "Tilottama Campus",
+    period: "2073 – 2075",
+    notes: ["GPA: 2.98"],
+  },
+  {
     degree: "Bachelor of Computer Applications (BCA)",
     school: "Bhairahawa Multiple Campus",
     period: "2018 – 2023",
     notes: [
+      "GPA: 3.52",
       "Received a semester scholarship and was a topper.",
       "Began seriously learning programming around the third semester.",
       "Timeline was extended due to COVID-related disruption.",
@@ -222,6 +242,7 @@ export const projects: Project[] = [
       "Data fetching & caching with TanStack Query",
     ],
     tech: ["Next.js", "React", "TanStack Query"],
+    liveUrl: "https://customer.hei.com.np/my-insurance",
     accent: "from-[oklch(0.52_0.17_274/0.14)]",
   },
   {
@@ -308,6 +329,8 @@ export const interests = [
   "Cooking",
   "Dancing",
 ];
+
+export const languages = ["Hindi", "Urdu", "English", "Nepali"];
 
 /* ── GitHub ─────────────────────────────────────────────────── */
 
