@@ -320,12 +320,30 @@ export const projects: Project[] = [
 /* ── Beyond the Screen ──────────────────────────────────────── */
 
 export const interests = [
-  "Novels and Poetry",
-  "Reading",
-  "Journaling",
-  "Mehendi Artist",
-  "Cooking",
-  "Sketching",
+  {
+    title: "Novels & Poetry",
+    image: "/images/hobbies/novels.jpg",
+  },
+  {
+    title: "Reading",
+    image: "/images/hobbies/reading.jpg",
+  },
+  {
+    title: "Journaling",
+    image: "/images/hobbies/journal.jpg",
+  },
+  {
+    title: "Mehendi Art",
+    image: "/images/hobbies/mehendi.jpg",
+  },
+  {
+    title: "Cooking",
+    image: "/images/hobbies/cooking.jpg",
+  },
+  {
+    title: "Sketching",
+    image: "/images/hobbies/sketching.jpg",
+  },
 ];
 
 export const languages = ["Hindi", "Urdu", "English", "Nepali"];
