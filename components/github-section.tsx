@@ -19,7 +19,7 @@ export function GithubSection() {
           >
             <div className="flex items-center gap-5">
               <span className="flex size-14 items-center justify-center rounded-2xl bg-brand-muted text-brand">
-                <Github className="size-7" />
+                <GithubIcon className="size-7" />
               </span>
               <div>
                 <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
