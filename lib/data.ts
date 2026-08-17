@@ -20,25 +20,22 @@ export const profile = {
   // Short intro used for SEO / meta description.
   summary:
     "Frontend developer based in Nepal, focused on React, responsive design, and turning UI designs into clean, accessible web interfaces.",
-  // PLACEHOLDER: replace with a real professional photograph of Aayasha
-  // (drop the file in /public and update this path). Do not use an
-  // illustration or avatar in its place. Once the real photo is added,
-  // set `photoReady` to true and the hero will show the image instead
-  // of the (intentionally non-fabricated) placeholder frame.
+  // Replaced by the uploaded portrait. Drop the actual image in /public
+  // as `aayasha-portrait.jpg` if not already present.
   photo: "/aayasha-portrait.jpg",
-  photoReady: false,
+  photoReady: true,
   initials: "AK",
   // PLACEHOLDER: add the real CV file to /public and keep this path.
   resume: "/aayasha-khatun-resume.pdf",
-}
+};
 
 export type SocialLink = {
-  label: string
-  href: string
-  handle: string
-  kind: "email" | "linkedin"
-  personal?: boolean
-}
+  label: string;
+  href: string;
+  handle: string;
+  kind: "email" | "linkedin";
+  personal?: boolean;
+};
 
 export const socials: SocialLink[] = [
   {
@@ -53,7 +50,7 @@ export const socials: SocialLink[] = [
     handle: "/in/aayesha-basir",
     kind: "linkedin",
   },
-]
+];
 
 export const navLinks = [
   { label: "Home", href: "#home" },
@@ -64,7 +61,7 @@ export const navLinks = [
   { label: "Education", href: "#education" },
   { label: "GitHub", href: "#github" },
   { label: "Contact", href: "#contact" },
-]
+];
 
 /* ── About ──────────────────────────────────────────────────── */
 
@@ -83,15 +80,15 @@ export const about = {
     "Curious",
     "Design-conscious",
   ],
-}
+};
 
 /* ── Skills ─────────────────────────────────────────────────── */
 
 export type SkillGroup = {
-  title: string
-  note?: string
-  items: string[]
-}
+  title: string;
+  note?: string;
+  items: string[];
+};
 
 export const skillGroups: SkillGroup[] = [
   {
@@ -121,7 +118,7 @@ export const skillGroups: SkillGroup[] = [
     title: "Tools",
     items: ["Git", "GitHub", "Postman", "VS Code", "Swagger", "Railway"],
   },
-]
+];
 
 // Given special visual emphasis as core frontend strengths.
 export const coreStrengths = [
@@ -134,17 +131,17 @@ export const coreStrengths = [
   "Animations",
   "State Management",
   "UI Implementation",
-]
+];
 
 /* ── Experience ─────────────────────────────────────────────── */
 
 export type ExperienceItem = {
-  role: string
-  org: string
-  period: string
-  current?: boolean
-  description: string
-}
+  role: string;
+  org: string;
+  period: string;
+  current?: boolean;
+  description: string;
+};
 
 export const experience: ExperienceItem[] = [
   {
@@ -169,7 +166,7 @@ export const experience: ExperienceItem[] = [
     description:
       "Began professional work with Ambition Guru, under YAJ Pvt. Ltd., contributing to frontend development on live projects.",
   },
-]
+];
 
 /* ── Education ──────────────────────────────────────────────── */
 
@@ -184,28 +181,28 @@ export const education = [
       "Timeline was extended due to COVID-related disruption.",
     ],
   },
-]
+];
 
 /* ── Projects ───────────────────────────────────────────────── */
 
 export type Project = {
-  id: string
-  index: string
-  name: string
-  role: string
-  featured: boolean
-  confidential?: boolean
-  personal?: boolean
-  description: string
-  highlights: string[]
-  tech: string[]
-  liveUrl?: string
-  sourceUrl?: string
+  id: string;
+  index: string;
+  name: string;
+  role: string;
+  featured: boolean;
+  confidential?: boolean;
+  personal?: boolean;
+  description: string;
+  highlights: string[];
+  tech: string[];
+  liveUrl?: string;
+  sourceUrl?: string;
   // PLACEHOLDER cover: a designed, non-fabricated visual is used in the UI.
   // Drop a real screenshot in /public and set `image` to use it instead.
-  image?: string
-  accent: string
-}
+  image?: string;
+  accent: string;
+};
 
 export const projects: Project[] = [
   {
@@ -297,7 +294,7 @@ export const projects: Project[] = [
     tech: ["React", "CSS Animations", "Interaction"],
     accent: "from-[oklch(0.7_0.15_30/0.18)]",
   },
-]
+];
 
 /* ── Beyond the Screen ──────────────────────────────────────── */
 
@@ -310,10 +307,10 @@ export const interests = [
   "Flower collection",
   "Cooking",
   "Dancing",
-]
+];
 
 /* ── GitHub ─────────────────────────────────────────────────── */
 
 // PLACEHOLDER: set to the real GitHub profile. We intentionally do not
 // fabricate contribution counts, repos, stars, or followers.
-export const githubUrl = "https://github.com/your-handle"
+export const githubUrl = "https://github.com/your-handle";

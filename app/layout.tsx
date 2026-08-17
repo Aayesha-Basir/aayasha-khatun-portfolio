@@ -1,24 +1,24 @@
-import { Analytics } from "@vercel/analytics/next"
-import type { Metadata, Viewport } from "next"
-import { Inter, Space_Grotesk } from "next/font/google"
-import { profile } from "@/lib/data"
-import "./globals.css"
+import { Analytics } from "@vercel/analytics/next";
+import type { Metadata, Viewport } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
+import { profile } from "@/lib/data";
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-})
+});
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
   display: "swap",
-})
+});
 
 // PLACEHOLDER: update this to the real deployed domain. Used for the
 // canonical URL, sitemap, robots, and Open Graph absolute URLs.
-const siteUrl = "https://aayasha.dev"
+const siteUrl = "https://aayasha.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -59,14 +59,10 @@ export const metadata: Metadata = {
   },
   generator: "v0.app",
   icons: {
-    icon: [
-      { url: "/icon-light-32x32.png", media: "(prefers-color-scheme: light)" },
-      { url: "/icon-dark-32x32.png", media: "(prefers-color-scheme: dark)" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     apple: "/apple-icon.png",
   },
-}
+};
 
 export const viewport: Viewport = {
   colorScheme: "light dark",
@@ -74,7 +70,7 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
   ],
-}
+};
 
 // Runs before paint to apply the saved theme and avoid a flash of the
 // wrong color scheme. Falls back to the system preference.
@@ -87,12 +83,12 @@ const themeScript = `
     else if (stored === 'light') { root.classList.add('light'); }
   } catch (e) {}
 })();
-`
+`;
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html
@@ -108,5 +104,5 @@ export default function RootLayout({
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
-  )
+  );
 }
