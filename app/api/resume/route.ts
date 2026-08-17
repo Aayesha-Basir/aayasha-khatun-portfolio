@@ -48,10 +48,6 @@ export async function GET() {
   const regular = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const bold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
-  // =========================================================
-  // BACKGROUND
-  // =========================================================
-
   page.drawRectangle({
     x: 0,
     y: 0,
@@ -78,15 +74,7 @@ export async function GET() {
     color: COLORS.accent,
   });
 
-  // =========================================================
-  // SIDEBAR
-  // =========================================================
-
   let sideY = PAGE_HEIGHT - 42;
-
-  // ---------------------------------------------------------
-  // PHOTO
-  // ---------------------------------------------------------
 
   try {
     const imagePath = path.join(
@@ -129,10 +117,6 @@ export async function GET() {
   } catch {
     // Keep the rest of the resume working if the image is unavailable.
   }
-
-  // ---------------------------------------------------------
-  // CONTACT
-  // ---------------------------------------------------------
 
   drawSidebarHeading(page, "CONTACT", 22, sideY, bold);
   sideY -= 18;
@@ -185,10 +169,6 @@ export async function GET() {
     );
   }
 
-  // ---------------------------------------------------------
-  // SKILLS
-  // ---------------------------------------------------------
-
   sideY -= 12;
 
   drawSidebarHeading(page, "SKILLS", 22, sideY, bold);
@@ -229,10 +209,6 @@ export async function GET() {
     sideY -= 8;
   }
 
-  // ---------------------------------------------------------
-  // LANGUAGES
-  // ---------------------------------------------------------
-
   const langList =
     profile.languages && profile.languages.length
       ? profile.languages
@@ -257,15 +233,7 @@ export async function GET() {
     }
   }
 
-  // =========================================================
-  // MAIN CONTENT
-  // =========================================================
-
   let y = PAGE_HEIGHT - 52;
-
-  // ---------------------------------------------------------
-  // NAME
-  // ---------------------------------------------------------
 
   page.drawText(profile.name, {
     x: CONTENT_X,
@@ -302,11 +270,6 @@ export async function GET() {
   });
 
   y -= 22;
-
-  // ---------------------------------------------------------
-  // PROFILE
-  // ---------------------------------------------------------
-
   y = drawSectionTitle(page, "PROFILE", y, bold);
 
   const summaryLines = wrapText(
@@ -329,10 +292,6 @@ export async function GET() {
   }
 
   y -= 10;
-
-  // ---------------------------------------------------------
-  // EXPERIENCE
-  // ---------------------------------------------------------
 
   y = drawSectionTitle(page, "EXPERIENCE", y, bold);
 
@@ -409,10 +368,6 @@ export async function GET() {
 
     y -= 9;
   }
-
-  // ---------------------------------------------------------
-  // EDUCATION
-  // ---------------------------------------------------------
 
   y = drawSectionTitle(page, "EDUCATION", y, bold);
 
@@ -499,13 +454,8 @@ export async function GET() {
     y -= Math.max(30, extraSpace);
   }
 
-  // ---------------------------------------------------------
-  // PERSONAL / INTERESTS
-  // ---------------------------------------------------------
-
   if (interests?.length && y > 80) {
     y = drawSectionTitle(page, "BEYOND WORK", y, bold);
-    // Try to embed hobby images if present in public/images/hobbies
     const hobbyDir = path.join(process.cwd(), "public", "images", "hobbies");
     const hobbyFiles: string[] = [];
     for (let i = 1; i <= 6; i++) {
@@ -542,8 +492,10 @@ export async function GET() {
       y -= thumbSize + 12;
     }
 
-    // Fallback: print hobbies as text if no images or along with images
-    const interestText = interests.slice(0, 6).join("  •  ");
+    const interestText = interests
+      .slice(0, 6)
+      .map((interest) => interest.title)
+      .join("  •  ");
     const interestLines = wrapText(interestText, regular, 9.2, CONTENT_WIDTH);
 
     for (const line of interestLines) {
@@ -558,10 +510,6 @@ export async function GET() {
       y -= 13;
     }
   }
-
-  // =========================================================
-  // FOOTER
-  // =========================================================
 
   page.drawLine({
     start: {
@@ -592,10 +540,6 @@ export async function GET() {
     color: COLORS.muted,
   });
 
-  // =========================================================
-  // RESPONSE
-  // =========================================================
-
   const pdfBytes = await pdfDoc.save();
 
   return new Response(Buffer.from(pdfBytes), {
@@ -606,10 +550,6 @@ export async function GET() {
     },
   });
 }
-
-// =============================================================
-// HELPERS
-// =============================================================
 
 function drawSidebarHeading(
   page: PDFPage,
