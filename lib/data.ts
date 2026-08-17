@@ -320,14 +320,12 @@ export const projects: Project[] = [
 /* ── Beyond the Screen ──────────────────────────────────────── */
 
 export const interests = [
-  "Writing",
-  "Novels",
-  "Poetry",
-  "Sketching",
+  "Novels and Poetry",
+  "Reading",
   "Journaling",
-  "Flower collection",
+  "Mehendi Artist",
   "Cooking",
-  "Dancing",
+  "Sketching",
 ];
 
 export const languages = ["Hindi", "Urdu", "English", "Nepali"];

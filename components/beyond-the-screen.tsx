@@ -1,6 +1,6 @@
-import { SectionHeading } from "@/components/section-heading"
-import { Reveal } from "@/components/reveal"
-import { interests } from "@/lib/data"
+import { SectionHeading } from "@/components/section-heading";
+import { Reveal } from "@/components/reveal";
+import { interests } from "@/lib/data";
 
 export function BeyondTheScreen() {
   return (
@@ -11,7 +11,7 @@ export function BeyondTheScreen() {
         description="When I'm not building interfaces, I'm usually making something else."
       />
 
-      <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-">
         {interests.map((interest, i) => (
           <Reveal key={interest} delay={i * 60}>
             <div className="group relative flex aspect-square flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card p-5 transition-colors hover:border-brand/40">
@@ -33,5 +33,5 @@ export function BeyondTheScreen() {
         ))}
       </div>
     </section>
-  )
+  );
 }

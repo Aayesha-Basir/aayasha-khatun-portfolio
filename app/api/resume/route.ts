@@ -505,9 +505,45 @@ export async function GET() {
 
   if (interests?.length && y > 80) {
     y = drawSectionTitle(page, "BEYOND WORK", y, bold);
+    // Try to embed hobby images if present in public/images/hobbies
+    const hobbyDir = path.join(process.cwd(), "public", "images", "hobbies");
+    const hobbyFiles: string[] = [];
+    for (let i = 1; i <= 6; i++) {
+      const jpg = path.join(hobbyDir, `hobby-${i}.jpg`);
+      const png = path.join(hobbyDir, `hobby-${i}.png`);
+      if (fs.existsSync(jpg)) hobbyFiles.push(jpg);
+      else if (fs.existsSync(png)) hobbyFiles.push(png);
+    }
 
+    if (hobbyFiles.length) {
+      // draw up to 4 thumbnails in a row
+      const thumbSize = 64;
+      const gap = 10;
+      let tx = CONTENT_X;
+      for (let i = 0; i < Math.min(4, hobbyFiles.length); i++) {
+        try {
+          const fp = hobbyFiles[i];
+          const bytes = fs.readFileSync(fp);
+          const isPng = fp.toLowerCase().endsWith(".png");
+          const img = isPng
+            ? await pdfDoc.embedPng(bytes)
+            : await pdfDoc.embedJpg(bytes);
+          page.drawImage(img, {
+            x: tx,
+            y: y - thumbSize + 8,
+            width: thumbSize,
+            height: thumbSize,
+          });
+          tx += thumbSize + gap;
+        } catch (e) {
+          // ignore image errors and continue
+        }
+      }
+      y -= thumbSize + 12;
+    }
+
+    // Fallback: print hobbies as text if no images or along with images
     const interestText = interests.slice(0, 6).join("  •  ");
-
     const interestLines = wrapText(interestText, regular, 9.2, CONTENT_WIDTH);
 
     for (const line of interestLines) {
