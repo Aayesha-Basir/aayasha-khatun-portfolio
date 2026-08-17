@@ -36,36 +36,22 @@ export type SocialLink = {
   label: string
   href: string
   handle: string
-  kind: "email" | "linkedin" | "github" | "instagram"
+  kind: "email" | "linkedin"
   personal?: boolean
 }
 
-// PLACEHOLDER: replace href/handle values with real accounts.
 export const socials: SocialLink[] = [
   {
     label: "Email",
-    href: "mailto:hello@example.com",
-    handle: "hello@example.com",
+    href: "mailto:aayeshabasir@gmail.com",
+    handle: "aayeshabasir@gmail.com",
     kind: "email",
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/your-handle",
-    handle: "/in/your-handle",
+    href: "https://www.linkedin.com/in/aayesha-basir-205189233",
+    handle: "/in/aayesha-basir",
     kind: "linkedin",
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/your-handle",
-    handle: "@your-handle",
-    kind: "github",
-  },
-  {
-    label: "Instagram",
-    href: "https://instagram.com/your-handle",
-    handle: "@your-handle",
-    kind: "instagram",
-    personal: true,
   },
 ]
 
